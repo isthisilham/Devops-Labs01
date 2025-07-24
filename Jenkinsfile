@@ -13,10 +13,14 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        sh 'echo Menjalankan test...'
-        sh 'pytest tests/'
-      }
-    }
+  steps {
+    echo 'Menjalankan test...'
+    sh '''
+      python3 -m pip install pytest
+      pytest tests/
+    '''
+  }
+}
+
   }
 }
