@@ -16,11 +16,12 @@ pipeline {
   steps {
     echo 'Menjalankan test...'
     sh '''
+      python3 -m ensurepip --upgrade || true
+      python3 -m pip install --upgrade pip setuptools
       python3 -m pip install pytest
       pytest tests/
     '''
   }
 }
-
   }
 }
