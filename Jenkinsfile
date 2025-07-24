@@ -15,6 +15,11 @@ pipeline {
         }
 
         stage('Test') {
+    agent {
+        docker {
+            image 'python:3.11'
+        }
+    }
     steps {
         echo 'Menjalankan test...'
         sh '''
