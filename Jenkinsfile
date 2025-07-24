@@ -15,19 +15,14 @@ pipeline {
         }
 
         stage('Test') {
-            agent {
-                docker {
-                    image 'python:3.11'
-                }
-            }
-            steps {
-                echo 'Menjalankan test...'
-                sh '''
-                    pip install --upgrade pip setuptools
-                    pip install pytest
-                    pytest tests/
-                '''
-            }
-        }
+    steps {
+        echo 'Menjalankan test...'
+        sh '''
+            pip install --upgrade pip setuptools
+            pip install pytest
+            pytest tests/
+        '''
+    }
+}
     }
 }
